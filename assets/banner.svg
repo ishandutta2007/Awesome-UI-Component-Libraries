@@ -1,0 +1,236 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="100%" height="auto">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bg-base" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#030712"/>
+      <stop offset="40%" stop-color="#0B0F19"/>
+      <stop offset="80%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#090D16"/>
+    </linearGradient>
+
+    <radialGradient id="glow-cyan" cx="20%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#06B6D4" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glow-purple" cx="80%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#8B5CF6" stop-opacity="0.4"/>
+      <stop offset="60%" stop-color="#8B5CF6" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#8B5CF6" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="glow-blue" cx="50%" cy="85%" r="45%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.3"/>
+      <stop offset="70%" stop-color="#3B82F6" stop-opacity="0.03"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Text Title Gradient -->
+    <linearGradient id="title-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="35%" stop-color="#818CF8"/>
+      <stop offset="70%" stop-color="#C084FC"/>
+      <stop offset="100%" stop-color="#F472B6"/>
+    </linearGradient>
+
+    <linearGradient id="tag-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#818CF8" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#C084FC" stop-opacity="0.8"/>
+    </linearGradient>
+
+    <linearGradient id="card-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.03"/>
+    </linearGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="grid-pattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#FFFFFF" stroke-opacity="0.035" stroke-width="1"/>
+    </pattern>
+
+    <!-- Drop Shadows -->
+    <filter id="shadow-title" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+
+    <filter id="shadow-card" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.5"/>
+    </filter>
+
+    <!-- Animation Keyframes -->
+    <style>
+      @keyframes floatGlow1 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(40px, 20px) scale(1.08); }
+      }
+      @keyframes floatGlow2 {
+        0%, 100% { transform: translate(0, 0) scale(1); }
+        50% { transform: translate(-30px, -25px) scale(1.12); }
+      }
+      @keyframes dashMove {
+        0% { stroke-dashoffset: 600; }
+        100% { stroke-dashoffset: 0; }
+      }
+      @keyframes pulseSlow {
+        0%, 100% { opacity: 0.35; }
+        50% { opacity: 0.7; }
+      }
+      @keyframes floatCardLeft {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+      }
+      @keyframes floatCardRight {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(12px); }
+      }
+      .anim-glow-1 { animation: floatGlow1 12s ease-in-out infinite; }
+      .anim-glow-2 { animation: floatGlow2 14s ease-in-out infinite; }
+      .anim-dash {
+        stroke-dasharray: 20 15;
+        animation: dashMove 25s linear infinite;
+      }
+      .anim-pulse { animation: pulseSlow 4s ease-in-out infinite; }
+      .anim-card-left { animation: floatCardLeft 7s ease-in-out infinite; }
+      .anim-card-right { animation: floatCardRight 8s ease-in-out infinite; }
+    </style>
+  </defs>
+
+  <!-- Base Canvas -->
+  <rect width="1200" height="420" rx="20" fill="url(#bg-base)"/>
+  
+  <!-- Subtle Grid Texture -->
+  <rect width="1200" height="420" rx="20" fill="url(#grid-pattern)"/>
+
+  <!-- Dynamic Animated Glow Orbs (Background) -->
+  <g>
+    <circle class="anim-glow-1" cx="220" cy="140" r="280" fill="url(#glow-cyan)"/>
+    <circle class="anim-glow-2" cx="980" cy="180" r="320" fill="url(#glow-purple)"/>
+    <circle class="anim-glow-1" cx="600" cy="380" r="260" fill="url(#glow-blue)"/>
+  </g>
+
+  <!-- Flowing Dynamic Cyber/Circuit Wire Lines -->
+  <g class="anim-dash" stroke="url(#title-gradient)" stroke-width="1.5" fill="none" opacity="0.3">
+    <path d="M -50 160 Q 250 80, 450 170 T 850 140 T 1250 200"/>
+    <path d="M -50 300 Q 300 360, 600 280 T 1150 320 T 1300 240"/>
+  </g>
+
+  <!-- Left Peripheral Floating Card (Background / Non-obstructive) -->
+  <g class="anim-card-left" transform="translate(45, 95)" opacity="0.38" filter="url(#shadow-card)">
+    <rect width="180" height="150" rx="14" fill="#0F172A" stroke="url(#card-border)" stroke-width="1"/>
+    <!-- Mock UI: Component Tree -->
+    <rect x="18" y="20" width="70" height="12" rx="4" fill="#38BDF8" opacity="0.8"/>
+    <rect x="18" y="44" width="144" height="24" rx="6" fill="#1E293B"/>
+    <circle cx="32" cy="56" r="5" fill="#38BDF8"/>
+    <rect x="46" y="52" width="70" height="8" rx="2" fill="#94A3B8"/>
+    
+    <rect x="18" y="78" width="144" height="24" rx="6" fill="#1E293B"/>
+    <circle cx="32" cy="90" r="5" fill="#818CF8"/>
+    <rect x="46" y="86" width="85" height="8" rx="2" fill="#94A3B8"/>
+
+    <rect x="18" y="112" width="80" height="20" rx="5" fill="#3B82F6" opacity="0.5"/>
+    <rect x="106" y="112" width="56" height="20" rx="5" fill="#334155" opacity="0.6"/>
+  </g>
+
+  <!-- Right Peripheral Floating Card (Background / Non-obstructive) -->
+  <g class="anim-card-right" transform="translate(975, 125)" opacity="0.38" filter="url(#shadow-card)">
+    <rect width="180" height="160" rx="14" fill="#0F172A" stroke="url(#card-border)" stroke-width="1"/>
+    <!-- Mock UI: Data Grid & Toggle -->
+    <rect x="18" y="22" width="80" height="12" rx="4" fill="#C084FC" opacity="0.8"/>
+    <rect x="18" y="48" width="144" height="16" rx="4" fill="#1E293B"/>
+    <rect x="26" y="52" width="40" height="8" rx="2" fill="#64748B"/>
+    <rect x="80" y="52" width="50" height="8" rx="2" fill="#38BDF8" opacity="0.7"/>
+
+    <rect x="18" y="72" width="144" height="16" rx="4" fill="#1E293B"/>
+    <rect x="26" y="76" width="50" height="8" rx="2" fill="#64748B"/>
+    <rect x="90" y="76" width="40" height="8" rx="2" fill="#A855F7" opacity="0.7"/>
+
+    <rect x="18" y="96" width="144" height="16" rx="4" fill="#1E293B"/>
+    <rect x="26" y="100" width="35" height="8" rx="2" fill="#64748B"/>
+    <rect x="75" y="100" width="55" height="8" rx="2" fill="#10B981" opacity="0.7"/>
+
+    <rect x="18" y="122" width="144" height="22" rx="6" fill="#334155" opacity="0.4"/>
+    <circle cx="146" cy="133" r="6" fill="#10B981"/>
+  </g>
+
+  <!-- Glowing Accent Border on Entire Banner -->
+  <rect width="1198" height="418" x="1" y="1" rx="19" fill="none" stroke="url(#tag-border)" stroke-width="1.5" opacity="0.5"/>
+
+  <!-- ================= FOREGROUND CONTENT (Guaranteed Front & Clear) ================= -->
+
+  <!-- Top Pill / Category Kicker -->
+  <g transform="translate(600, 68)" text-anchor="middle">
+    <!-- Pill background -->
+    <rect x="-190" y="-18" width="380" height="36" rx="18" fill="#1E293B" fill-opacity="0.9" stroke="url(#tag-border)" stroke-width="1.5"/>
+    <circle cx="-162" cy="0" r="4" fill="#38BDF8" class="anim-pulse"/>
+    <text x="-146" y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="12" font-weight="700" fill="#E2E8F0" letter-spacing="1.5" text-anchor="start">
+      CURATED ECOSYSTEM &amp; BENCHMARKS
+    </text>
+    <circle cx="162" cy="0" r="4" fill="#F472B6" class="anim-pulse"/>
+  </g>
+
+  <!-- Main Title -->
+  <g transform="translate(600, 160)" text-anchor="middle" filter="url(#shadow-title)">
+    <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif" font-size="52" font-weight="900" fill="url(#title-gradient)" letter-spacing="-1">
+      Awesome UI Component Libraries
+    </text>
+  </g>
+
+  <!-- Subtitle -->
+  <g transform="translate(600, 218)" text-anchor="middle" filter="url(#shadow-title)">
+    <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="19" font-weight="400" fill="#CBD5E1" letter-spacing="0.2">
+      The Ultimate Directory of Headless Primitives, Copy-Paste Systems &amp; Enterprise UI Suites
+    </text>
+  </g>
+
+  <!-- Feature Badge Pills Row (Foreground) -->
+  <g transform="translate(600, 305)" text-anchor="middle">
+    <!-- Tag 1: Headless Primitives -->
+    <g transform="translate(-360, 0)">
+      <rect x="-85" y="-18" width="170" height="36" rx="10" fill="#0F172A" stroke="#38BDF8" stroke-opacity="0.6" stroke-width="1.2"/>
+      <text y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">
+        ⚡ Headless Primitives
+      </text>
+    </g>
+
+    <!-- Tag 2: Copy-Paste Components -->
+    <g transform="translate(-180, 0)">
+      <rect x="-85" y="-18" width="170" height="36" rx="10" fill="#0F172A" stroke="#818CF8" stroke-opacity="0.6" stroke-width="1.2"/>
+      <text y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">
+        📋 Copy-Paste UI
+      </text>
+    </g>
+
+    <!-- Tag 3: Enterprise Grids -->
+    <g transform="translate(0, 0)">
+      <rect x="-85" y="-18" width="170" height="36" rx="10" fill="#0F172A" stroke="#A855F7" stroke-opacity="0.6" stroke-width="1.2"/>
+      <text y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">
+        🏢 Enterprise SaaS
+      </text>
+    </g>
+
+    <!-- Tag 4: WCAG Accessible -->
+    <g transform="translate(180, 0)">
+      <rect x="-85" y="-18" width="170" height="36" rx="10" fill="#0F172A" stroke="#EC4899" stroke-opacity="0.6" stroke-width="1.2"/>
+      <text y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">
+        ♿ Accessible (WCAG)
+      </text>
+    </g>
+
+    <!-- Tag 5: Cross-Framework -->
+    <g transform="translate(360, 0)">
+      <rect x="-85" y="-18" width="170" height="36" rx="10" fill="#0F172A" stroke="#10B981" stroke-opacity="0.6" stroke-width="1.2"/>
+      <text y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" fill="#E2E8F0">
+        🌐 Cross-Framework
+      </text>
+    </g>
+  </g>
+
+  <!-- Bottom Accent Highlights -->
+  <g transform="translate(600, 375)" text-anchor="middle">
+    <text font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" fill="#64748B" letter-spacing="0.5">
+      React • Vue • Svelte • Angular • Tailwind CSS • Web Components
+    </text>
+  </g>
+</svg>
